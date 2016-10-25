@@ -1,0 +1,63 @@
+public class TestClass2 {
+
+
+	public static void main(String[] args) {
+		Person[] attendees = new Person[5];
+		attendees[0] = new Student("Tom", "109 Franklin Street", "IT");
+		attendees[1] = new SalaryEmployee("Henry", "115 King street", "889 332 191", 50000);
+		attendees[2] = new ContractEmployee("Cindy", "36 Somewhere", "999 111 333", 50);
+		attendees[3] = new FractionalSalariedEmployee("Geogre", "119 no where road", "345 999 222", 90000, 10);
+		attendees[4] = new Student("Rebecca", "618 Lonsdale", "Master of IT");
+		
+		//FractionalSalariedEmployee extends SalaryEmployee extends Employee extends Person
+		//a FranctionalSalariedEmployee is also a SalaryEmployee
+		
+		for (int i = 0; i < attendees.length; i++) {
+
+
+			//because the SalaryEmployees extends Employee extends Person
+			//and name is property of the superclass Person, and getName is a public method 
+			//of the superclass Person, so any subclass of the Person class can call the
+			//getName method
+			System.out.println(attendees[i].getName());
+			
+			if(attendees[i] instanceof Student) {
+				System.out.printf("attendees[%d] refers to a Student object.\n", i);
+				
+				System.out.printf("The degree of this student is %s\n", 
+						((Student)attendees[i]).getDegree());
+				
+			} else if (attendees[i] instanceof FractionalSalariedEmployee) {
+				System.out.printf("attendees[%d] refers a FractionalSalariedEmployee object.\n", i);
+				
+				//System.out.printf("The load of this employee is %.2f", attendees[i].getLoad());
+				
+				//because the attendees[i] instanceof FractionalSalariedEmployee return TRUE
+				//i know that this attendees[i] is referring to a FractionalSalariedEmployee object
+				// so i can do a type casting ((FractionalSalariedEmployee)attendees[i])
+				// so that i can access the methods only available in the FractionalSalariedEmployee class
+				System.out.printf("The load of this employee is %.2f\n", 
+						((FractionalSalariedEmployee)attendees[i]).getLoad());
+				
+			} else if (attendees[i] instanceof SalaryEmployee) {
+				System.out.printf("attendees[%d] refers a SalaryEmployee object.\n", i);
+				
+				//because the SalaryEmployees extends Employee extends Person
+				//and name is property of the superclass Person, and getName is a public method 
+				//of the superclass Person, so any subclass of the Person class can call the
+				//getName method
+				//System.out.println(attendees[i].getName());
+				
+			} else if (attendees[i] instanceof ContractEmployee) {
+				System.out.printf("attendees[%d] refers a ContractEmployee object.\n", i);
+			}  
+			
+			if(attendees[i] instanceof Employee) {
+				System.out.printf("The tax file number of this employee is %s\n", 
+						((Employee)attendees[i]).getTaxFileNumber());
+			}	
+		}
+	}
+
+
+}
