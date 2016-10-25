@@ -1,0 +1,18 @@
+public class Student extends Person {
+
+
+	private String degree;
+	
+	public Student(String name, String address, String degree) {
+		super(name, address);
+		this.degree = degree;
+		System.out.printf("Initilize the Student object with degree: "
+				+ "%s\n", degree);
+	}
+	
+	public String getDegree() {
+		return degree;
+	}
+
+
+}
