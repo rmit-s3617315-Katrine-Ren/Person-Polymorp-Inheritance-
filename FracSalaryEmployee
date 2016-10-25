@@ -1,0 +1,20 @@
+public class FractionalSalariedEmployee extends SalaryEmployee {
+
+
+	private double load;
+	
+	public FractionalSalariedEmployee(String name, String address, 
+			String tfn, double ySalary, double load) {
+		super(name, address, tfn, ySalary);
+		this.load = load;
+		System.out.printf("Initilize the Fractional Salary Employee object "
+				+ "with work load: %f\n", load);
+	}
+	
+	public double getLoad() {
+		return load;
+	}
+	
+
+
+}
