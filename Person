@@ -1,0 +1,19 @@
+public abstract class Person {
+	
+	private String name;
+	private String address;
+	
+	public Person(String name, String address) {
+		super();
+		this.name = name;
+		this.address = address;
+		System.out.printf("Initilize the Person object with name: "
+				+ "%s and address %s\n", name, address);
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+
+}
