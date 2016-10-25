@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+
+
+
+public class TestClass {
+
+
+	public static void main(String[] args) {
+		
+		Person person = null;
+		
+		System.out.println("1. Student");
+		System.out.println("2. Salary Employee");
+		System.out.println("3. Contract Employee");
+		System.out.println("4. Fractional Salaried Employee");
+		System.out.print("Enter a selection (1, 2, 3, 4) for the "
+				+ "type of object you want to create: ");
+		Scanner scanner = new Scanner(System.in);
+		int selection = scanner.nextInt();
+		scanner.nextLine();
+		
+		if(selection == 1 || selection == 2 || selection == 3 || selection == 4) {
+			System.out.print("Enter the person name: ");
+			String name = scanner.nextLine();
+			System.out.print("Enter the person address: ");
+			String address = scanner.nextLine();
+			switch (selection) {
+			case 1:
+				System.out.print("Enter student degree: ");
+				String degree = scanner.nextLine();
+				person = new Student(name, address, degree);
+				break;
+			case 2:
+				System.out.print("Enter employee TFN: ");
+				String tfn = scanner.nextLine();
+				System.out.print("Enter employee yearly salary: ");
+				double ySalary = scanner.nextDouble();
+				person = new SalaryEmployee(name, address, tfn, ySalary);
+				break;
+			case 3:
+				System.out.print("Enter employee TFN: ");
+				tfn = scanner.nextLine();
+				System.out.print("Enter employee hourly rate: ");
+				double hRate = scanner.nextDouble();
+				person = new ContractEmployee(name, address, tfn, hRate);
+				break;
+			case 4:
+				System.out.print("Enter employee TFN: ");
+				tfn = scanner.nextLine();
+				System.out.print("Enter employee yearly salary: ");
+				ySalary = scanner.nextDouble();
+				System.out.print("Enter employee load: ");
+				double load = scanner.nextDouble();
+				person = new FractionalSalariedEmployee(name, address, 
+						tfn, ySalary, load);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+
+}
